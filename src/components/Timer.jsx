@@ -5,7 +5,7 @@ function Timer() {
   const [isRunning, setIsRunning] = useState(false);
   let timerId = useRef();
 
-  const startTimer = () => {
+  const startTimer = (e) => {
     if (!isRunning) {
       setIsRunning(true);
       runTimer();
@@ -15,7 +15,7 @@ function Timer() {
   const runTimer = () => {
     timerId.current = setTimeout(() => {
       setTime((prev) => prev + 1);
-      runTimer(); // call again
+      runTimer();
     }, 1000);
   };
 
@@ -40,8 +40,12 @@ function Timer() {
   return (
     <div>
       <h1>{formatTime(time)}</h1>
-      <button onClick={startTimer}>Start</button>
-      <button onClick={pauseTimer}>Pause</button>
+      <button onClick={startTimer} className={isRunning ? "clicked" : ""}>
+        Start
+      </button>
+      <button onClick={pauseTimer} className={!isRunning ? "clicked" : ""}>
+        Pause
+      </button>
       <button onClick={resetTimer}>Reset</button>
     </div>
   );

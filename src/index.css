@@ -53,6 +53,9 @@ button {
 button:hover {
   border-color: #646cff;
 }
+.clicked {
+  background-color: chocolate;
+}
 /* button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
